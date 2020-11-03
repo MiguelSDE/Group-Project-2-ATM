@@ -1,6 +1,9 @@
 # Group-Project-2-ATM
 
-### Follow these instructions: https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/development_environment
+### Follow these instructions: 
+### https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/development_environment
+### https://www.youtube.com/watch?v=9cMWR-EGFuY&t=300s
+
 #
 ## Instructions
 Once you have followed the Mozilla tutorial and created your Environment, everytime you want to start working again, open cmd on the folder, then you need to do `workon yourEnvName`
