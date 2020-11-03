@@ -20,6 +20,6 @@ from ATM.views import index
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # path('ATM/', index)
-    path('', index)
+    #path('ATM/', index) for different pages
+    path('', index) 
 ]
