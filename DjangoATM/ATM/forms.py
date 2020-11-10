@@ -4,9 +4,8 @@ from .models import Account
 class CardSignupForm(ModelForm):
     class Meta:
         model = Account
-        fields = {'account_name', 'account_number', 'balance', 'address', 'phone_number'}
-
-
+        fields = ('account_name', 'account_number', 'balance', 'address', 'phone_number')
+ 
 
    
     
