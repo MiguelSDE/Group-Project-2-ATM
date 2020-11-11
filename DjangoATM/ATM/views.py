@@ -5,9 +5,9 @@ from django.forms import inlineformset_factory
 from django.contrib.auth.forms import UserCreationForm
 from django.core.exceptions import ValidationError
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages
 from .forms import*
-
 from .models import*
 
 # Create your views here.
@@ -17,26 +17,29 @@ def index(request):
     if request.method == 'POST':
         form = CreateAccountForm(request.POST)
         if form.is_valid():
-            text = "Account created."
             form.save()
+            user = form.cleaned_data.get('username')
+            messages.success(request, 'Account was created for ' + user)
             return redirect('/login')
         else:
-            text = "Account name already exists or passwords don't match."
+            messages.error(request, 'Password must contain at least 8 characters')
     context = {'form':form, 'text':text}
     return render(request, 'ATM/index.html', context)
     
 
 def log_in(request):
     if request.method == 'POST':
-        account_name = request.POST.get('account_name')
+        username = request.POST.get('username')
         password = request.POST.get('password')
-        user = authenticate(request, account_name = account_name, password = password)
+        account = authenticate(request, username = username, password = password)
+        # if account is valid, logs it in
+        if account is not None:
+            login(request, account)
+            return redirect('/account-panel')
+        else:
+            messages.error(request, 'Username OR Password is incorrect')
 
-        login(request, user)
-        return redirect('/account-panel')
-    
-    context = {}
-    return render(request, 'ATM/login.html', context)
+    return render(request, 'ATM/login.html')
 
 def add_card(request):
     form = CardSignupForm()

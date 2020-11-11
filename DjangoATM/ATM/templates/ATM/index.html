@@ -4,25 +4,30 @@
         <br>ATM Card Website <span style="font-size:24"> (better name needed)</span> <!-- put a better name here -->
     </h1>
 </div>
-
-<h3>{{text}}</h3>
+	
 <form action="" method="post">
     {% csrf_token %}
     <div class="container">
-        <div style=" margin-left:530px;">
+        <div style=" margin-left:552px;">
             {% for field in form %}
             <ul>{{field}}</ul>
         {% endfor %}
         </div>
     <button type="submit"name="Create User">Register Account</button>
-    <p style="margin-left: 565px;">Already haven an account? Log in <a href='login/'>here</a></p>
+    <p style="margin-left: 598px;">Already haven an account? Log in <a href='login/'>here</a></p>
     </div>
 </form>
+
+<marquee scrollamount="18.5" behavior="slide" direction="down">
+    {% for message in messages %}
+    <p id="messages">{{message}}</p>
+    {% endfor %}	
+</marquee>
 
 <script>
 //Query All input fields
 var form_fields = document.getElementsByTagName('input')
-		form_fields[1].placeholder='Username..';
+		form_fields[1].placeholder='Account name...';
 		form_fields[2].placeholder='Enter password...';
 		form_fields[3].placeholder='Re-enter Password...';
 </script>
@@ -58,7 +63,7 @@ var form_fields = document.getElementsByTagName('input')
         border: none;
         cursor: pointer;
         width: 20%;
-        margin-left: 555px;
+        margin-left: 578px;
     }
 
     button:hover {
@@ -66,6 +71,18 @@ var form_fields = document.getElementsByTagName('input')
     }
 
     .container {
-        padding: 47px;
+        padding: 30px;
     }
+
+    #messages{
+        text-align:center;
+		background-color: rgb(231, 193, 88);
+		color: #fff;
+        padding: 10px;
+		width: 500px;
+        height: 24px;
+		margin-top: -3px;
+        margin-left: 520px;
+            
+		}
 </style>

@@ -7,6 +7,7 @@ from datetime import datetime, timedelta
 class Account(models.Model):
     account_name = models.CharField(max_length=30) 
     
+    
     def __str__(self):
         return self.account_name 
 
