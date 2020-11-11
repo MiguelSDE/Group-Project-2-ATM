@@ -22,6 +22,8 @@ urlpatterns = [
     path('admin/', admin.site.urls), 
     path('', views.index),
     #path('ATM/', index) for different pages
-    path('signup/', views.signup), 
+    path('add-card/', views.add_card), 
+    path('login/', views.log_in), 
+    path('account-panel/', views.account_panel), 
 
 ]

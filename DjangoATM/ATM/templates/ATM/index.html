@@ -1,14 +1,71 @@
-<h1>
-    Hello Group 1!
-    <br>ATM Card Website <span style="font-size:24"> (better name needed)</span> <!-- put a better name here -->
-</h1>
+<div id="title">
+    <h1>
+        Hello Group 1!
+        <br>ATM Card Website <span style="font-size:24"> (better name needed)</span> <!-- put a better name here -->
+    </h1>
+</div>
 
-<button onclick="location.href = '/signup'">Create Account</button>
+<h3>{{text}}</h3>
+<form action="" method="post">
+    {% csrf_token %}
+    <div class="container">
+        <div style=" margin-left:530px;">
+            {% for field in form %}
+            <ul>{{field}}</ul>
+        {% endfor %}
+        </div>
+    <button type="submit"name="Create User">Register Account</button>
+    <p style="margin-left: 565px;">Already haven an account? Log in <a href='login/'>here</a></p>
+    </div>
+</form>
 
 <script>
-
+//Query All input fields
+var form_fields = document.getElementsByTagName('input')
+		form_fields[1].placeholder='Username..';
+		form_fields[2].placeholder='Enter password...';
+		form_fields[3].placeholder='Re-enter Password...';
 </script>
 
 <style>
+    #title{
+        text-align: center;
+        margin-top: 50px;
+    }
+
+    form {
+        border: 3px solid #f1f1f1;
+    }
+
+    input[type=text], input[type=password] {
+        width: 30%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;    
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }
+
+    h3{
+        text-align: center;
+    }
     
+    button {
+        background-color: #5ea8ee;
+        color: rgb(250, 250, 250);
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 20%;
+        margin-left: 555px;
+    }
+
+    button:hover {
+        opacity: 0.8;
+    }
+
+    .container {
+        padding: 47px;
+    }
 </style>

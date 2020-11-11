@@ -1,0 +1,64 @@
+<h1 id="title">Account Login</h1>
+
+<form method="POST" action="">
+    {% csrf_token %}
+    <div style="margin-left:620px">
+        <input type="text" name="username" placeholder="Username..." class="form-control">
+    </div>
+
+    <div style="margin-left:620px">
+        <input type="password" name="password" placeholder="Password..." class="form-control" >
+    </div>
+
+    <button type="submit"value="Login">Login</button>
+
+</form>
+
+<script>
+
+</script>
+
+<style>
+    #title{
+        text-align: center;
+        margin-top: 50px;
+    }
+
+    form {
+        border: 3px solid #f1f1f1;
+    }
+
+    input[type=text], input[type=password] {
+        width: 30%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;    
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }
+
+    h3{
+        text-align: center;
+    }
+    
+    button {
+        background-color: #5ea8ee;
+        color: rgb(250, 250, 250);
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 20%;
+        margin-left: 600px;
+    }
+
+    button:hover {
+        opacity: 0.8;
+    }
+
+    .container {
+        padding: 47px;
+    }
+</style>
+
+
