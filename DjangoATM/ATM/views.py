@@ -22,7 +22,7 @@ def index(request):
             messages.success(request, 'Account was created for ' + user)
             return redirect('/login')
         else:
-            messages.error(request, 'Password must contain at least 8 characters')
+            messages.error(request, 'Passwords must contain at least 8 characters and must match')
     context = {'form':form, 'text':text}
     return render(request, 'ATM/index.html', context)
     
